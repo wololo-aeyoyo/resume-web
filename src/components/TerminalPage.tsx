@@ -187,7 +187,7 @@ export default function TerminalPage() {
       org: "· Credicard Consortium",
       period: t("j3_period"),
       loc: "Remote",
-      bullets: ["j3_b1", "j3_b2", "j3_b3", "j3_b4"],
+      bullets: ["j3_b1", "j3_b2", "j3_b3", "j3_b4", "j3_b5"],
     },
     {
       title: t("j4_title"),
