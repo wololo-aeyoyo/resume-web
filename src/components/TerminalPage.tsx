@@ -474,7 +474,7 @@ export default function TerminalPage() {
         <div className="body-text">
           {[
             { key: "extra_p1", titleColor: "var(--amber)" },
-            { key: "extra_p2", titleColor: "var(--green)" },
+            { key: "extra_p2", titleColor: "var(--amber)" },
           ].map(({ key, titleColor }) => {
             const text = t(key);
             const sep = text.indexOf(" — ");

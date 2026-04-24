@@ -1,0 +1,74 @@
+# kubectl create secret generic resume-web-env --from-env-file=.env.local --from-env-file=.env
+# (create the secret before applying this file; omit whichever .env files don't exist)
+
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: humberto-resume
+  labels:
+    app: humberto-resume
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: humberto-resume
+  template:
+    metadata:
+      labels:
+        app: humberto-resume
+    spec:
+      containers:
+        - name: humberto-resume
+          image: wololoaeyoyo/humberto-resume:master
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 3000
+          env:
+            - name: NODE_ENV
+              value: "production"
+            - name: NEXT_TELEMETRY_DISABLED
+              value: "1"
+          envFrom:
+            - secretRef:
+                name: resume-web-env
+                optional: true
+          resources:
+            requests:
+              memory: "128Mi"
+              cpu: "100m"
+            limits:
+              memory: "512Mi"
+              cpu: "500m"
+          livenessProbe:
+            httpGet:
+              path: /
+              port: 3000
+            initialDelaySeconds: 10
+            periodSeconds: 30
+            timeoutSeconds: 10
+            failureThreshold: 3
+          readinessProbe:
+            httpGet:
+              path: /
+              port: 3000
+            initialDelaySeconds: 10
+            periodSeconds: 30
+            timeoutSeconds: 10
+            failureThreshold: 3
+      restartPolicy: Always
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: humberto-resume
+spec:
+  selector:
+    app: humberto-resume
+  ports:
+    - protocol: TCP
+      port: 3000
+      targetPort: 3000
+  # Change to LoadBalancer to expose externally, or use an Ingress instead
+  type: ClusterIP
