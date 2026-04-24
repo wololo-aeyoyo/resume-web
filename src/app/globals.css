@@ -5,9 +5,9 @@
 
 :root {
   --bg: #1a1a18;
-  --amber: #e8a020;
-  --amber-dim: #a06a10;
-  --amber-lo: #5a3a08;
+  --amber: #5b8dd9;
+  --amber-dim: #3a6aaa;
+  --amber-lo: #1a2e4a;
   --green: #5aaf5a;
   --cyan: #5abcaf;
   --white: #d8d0b8;
@@ -115,7 +115,7 @@ body::before {
   border-color: var(--amber);
   color: var(--amber);
   background: var(--amber-lo);
-  box-shadow: 0 0 10px rgba(232, 160, 32, 0.2);
+  box-shadow: 0 0 10px rgba(91, 141, 217, 0.2);
 }
 
 /* ── Manpage header ── */
@@ -199,8 +199,8 @@ body::before {
   color: var(--amber);
   letter-spacing: 0.04em;
   text-shadow:
-    0 0 28px rgba(232, 160, 32, 0.5),
-    0 0 8px rgba(232, 160, 32, 0.3);
+    0 0 28px rgba(91, 141, 217, 0.5),
+    0 0 8px rgba(91, 141, 217, 0.3);
   line-height: 1;
 }
 
@@ -440,7 +440,7 @@ body::before {
   height: 100%;
   background: linear-gradient(to right, var(--amber-dim), var(--amber));
   border-radius: 1px;
-  box-shadow: 0 0 6px rgba(232, 160, 32, 0.35);
+  box-shadow: 0 0 6px rgba(91, 141, 217, 0.35);
   transform: scaleX(0);
   transform-origin: left center;
   transition: transform 1.3s cubic-bezier(0.4, 0, 0.2, 1);
