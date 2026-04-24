@@ -15,7 +15,7 @@ const inconsolata = Inconsolata({
 });
 
 export const metadata: Metadata = {
-  title: "humberto-raniolo — Reliability Engineer & Software Developer",
+  title: "Humberto-raniolo — Reliability Engineer & Software Developer",
   description:
     "Humberto Raniolo  — Reliability Engineer & Software Developer · 5+ years. Systems Engineer with experience in observability tooling, infrastructure automation, and backend web development.",
 };

@@ -10,7 +10,7 @@ export const translations: Record<Locale, Record<string, string>> = {
     sec_synopsis: "SYNOPSIS",
     sec_desc: "DESCRIPTION",
     desc_p1:
-      "humberto-raniolo is a Systems Engineer and Software Developer with experience in site reliability engineering, observability tooling, and backend web development. Graduated from UNEXPO – Luis Caballero Mejias University with a Bachelor of Science in Systems Engineering.",
+      "Humberto-Raniolo is a Systems Engineer and Software Developer with experience in site reliability engineering, observability tooling, and backend web development. Graduated from UNEXPO – Luis Caballero Mejias University with a Bachelor of Science in Systems Engineering.",
     desc_p2:
       "When invoked with --sre, manages and improves enterprise observability platforms (Splunk, Elastic, Grafana, VictoriaMetrics, Graphite), provisions infrastructure with Terraform, Chef, and Ansible on AWS, and leads cloud migrations generating millions in annual savings. When invoked with --dev, builds microservices with NodeJS/NestJS and RabbitMQ, implements REST APIs and OpenLDAP authentication, and establishes CI/CD pipelines for mobile applications.",
     sec_options: "OPTIONS / TECHNICAL SKILLS",
@@ -67,7 +67,7 @@ export const translations: Record<Locale, Record<string, string>> = {
     sec_synopsis: "SINOPSIS",
     sec_desc: "DESCRIPCIÓN",
     desc_p1:
-      "humberto-raniolo es un Ingeniero de Sistemas y Desarrollador de Software con experiencia en ingeniería de site Reliability, herramientas de observabilidad y desarrollo web backend. Graduado de UNEXPO – Universidad Luis Caballero Mejías con Licenciatura en Ingeniería de Sistemas.",
+      "Humberto-Raniolo es un Ingeniero de Sistemas y Desarrollador de Software con experiencia en ingeniería de site Reliability, herramientas de observabilidad y desarrollo web backend. Graduado de UNEXPO – Universidad Luis Caballero Mejías con Licenciatura en Ingeniería de Sistemas.",
     desc_p2:
       "Al invocarse con --sre, gestiona y mejora plataformas de observabilidad empresarial (Splunk, Elastic, Grafana, VictoriaMetrics, Graphite), provisiona infraestructura con Terraform, Chef y Ansible en AWS, y lidera migraciones a la nube generando millones en ahorros anuales. Al invocarse con --dev, construye microservicios con NodeJS/NestJS y RabbitMQ, implementa APIs REST y autenticación OpenLDAP, y establece pipelines CI/CD para aplicaciones móviles.",
     sec_options: "OPCIONES / HABILIDADES TÉCNICAS",

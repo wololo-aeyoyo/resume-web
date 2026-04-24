@@ -324,7 +324,7 @@ export default function TerminalPage() {
         <div className={`section-title t ${fadeClass}`}>{t("sec_name")}</div>
         <div className="name-block">
           <div className="cmd-name">
-            Humberto A. Raniolo Infante
+            Humberto A. Raniolo
             <span className="cmd-section">(1)</span>
             <span className="cursor" aria-hidden="true" />
           </div>
@@ -371,11 +371,11 @@ export default function TerminalPage() {
         <div className="body-text">
           <p className={`synopsis-line t ${fadeClass}`}>
             <span className="kw">humberto-raniolo</span>
-            {" [--sre AWS|Splunk|Terraform]"}
-            {" [--dev NodeJS|NestJS|Python]"}
-            {" [--language es|en]"}
-            {" [--location Minneapolis,MN]"}
-            {" [--open-to-relocation]"}
+            {" ["}<span style={{ color: "var(--amber)" }}>--sre</span>{" AWS|Splunk|Terraform]"}
+            {" ["}<span style={{ color: "var(--amber)" }}>--dev</span>{" NodeJS|NestJS|Python]"}
+            {" ["}<span style={{ color: "var(--amber)" }}>--language</span>{" es|en]"}
+            {" ["}<span style={{ color: "var(--amber)" }}>--location</span>{" Minneapolis,MN]"}
+            {" ["}<span style={{ color: "var(--amber)" }}>--open-to-relocation</span>{"]"}
           </p>
         </div>
       </div>
@@ -391,8 +391,8 @@ export default function TerminalPage() {
           </p>
           <p className={`t ${fadeClass}`}>
             {highlightKeywords(t("desc_p2"), [
-              { word: "--sre",  color: "var(--cyan)" },
-              { word: "--dev",  color: "var(--cyan)" },
+              { word: "--sre",  color: "var(--amber)" },
+              { word: "--dev",  color: "var(--amber)" },
             ])}
           </p>
         </div>
