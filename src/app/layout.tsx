@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { IBM_Plex_Mono, Inconsolata } from "next/font/google";
+import Script from "next/script";
 import "./globals.css";
 
 const ibmPlexMono = IBM_Plex_Mono({
@@ -31,6 +32,11 @@ export default function RootLayout({
       className={`${ibmPlexMono.variable} ${inconsolata.variable}`}
     >
       <body>{children}</body>
+      <Script
+        src="https://umami.wololoaeyoyo.com/script.js"
+        data-website-id="94bfb49f-b61f-4b19-8934-cc4e50898c1a"
+        strategy="afterInteractive"
+      />
     </html>
   );
 }
