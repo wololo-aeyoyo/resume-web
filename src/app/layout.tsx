@@ -16,9 +16,53 @@ const inconsolata = Inconsolata({
 });
 
 export const metadata: Metadata = {
-  title: "Humberto-raniolo — Reliability Engineer & Software Developer",
+  title: "Humberto Raniolo — Reliability Engineer & Software Developer",
   description:
-    "Humberto Raniolo  — Reliability Engineer & Software Developer · 5+ years. Systems Engineer with experience in observability tooling, infrastructure automation, and backend web development.",
+    "Humberto Raniolo — Reliability Engineer & Software Developer with 5+ years of experience in observability tooling, infrastructure automation, and backend web development. Based in Minneapolis, MN.",
+  keywords: [
+    "Humberto Raniolo",
+    "Reliability Engineer",
+    "Software Developer",
+    "SRE",
+    "Site Reliability Engineering",
+    "Observability",
+    "Splunk",
+    "Terraform",
+    "Node.js",
+    "NestJS",
+    "AWS",
+    "Kubernetes",
+    "Minneapolis",
+  ],
+  authors: [{ name: "Humberto Raniolo" }],
+  creator: "Humberto Raniolo",
+  metadataBase: new URL("https://resume.wololoaeyoyo.com"),
+  alternates: {
+    canonical: "/",
+  },
+  openGraph: {
+    type: "website",
+    url: "https://resume.wololoaeyoyo.com",
+    title: "Humberto Raniolo — Reliability Engineer & Software Developer",
+    description:
+      "Reliability Engineer & Software Developer with 5+ years of experience in observability tooling, infrastructure automation, and backend web development.",
+    siteName: "Humberto Raniolo",
+    locale: "en_US",
+  },
+  twitter: {
+    card: "summary",
+    title: "Humberto Raniolo — Reliability Engineer & Software Developer",
+    description:
+      "Reliability Engineer & Software Developer with 5+ years of experience in observability tooling, infrastructure automation, and backend web development.",
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+    },
+  },
 };
 
 export default function RootLayout({
