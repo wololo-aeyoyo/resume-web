@@ -143,6 +143,21 @@ body::before {
   display: none;
 }
 
+.formats-dropdown > summary svg:last-child {
+  transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.formats-dropdown[open] > summary svg:last-child {
+  transform: rotate(180deg);
+}
+
+.formats-dropdown[open] > summary.lang-btn {
+  border-color: var(--amber);
+  color: var(--amber);
+  background: var(--amber-lo);
+  box-shadow: 0 0 10px rgba(91, 141, 217, 0.2);
+}
+
 .formats-menu {
   position: absolute;
   top: calc(100% + 4px);
@@ -238,12 +253,30 @@ body::before {
   text-transform: uppercase;
   text-decoration: none;
   cursor: pointer;
-  transition: border-color 0.2s, background 0.2s;
+  transition: border-color 0.22s, background 0.22s, box-shadow 0.22s, transform 0.22s, color 0.22s;
 }
 
 .pdf-download:hover {
   border-color: var(--green);
-  background: rgba(90, 175, 90, 0.08);
+  color: #8fe98f;
+  background: rgba(90, 175, 90, 0.1);
+  box-shadow: 0 0 14px rgba(90, 175, 90, 0.28), inset 0 0 10px rgba(90, 175, 90, 0.06);
+  transform: translateY(-1px);
+}
+
+.pdf-download svg {
+  transition: transform 0.2s ease;
+}
+
+.pdf-download:hover svg {
+  animation: dl-bounce 0.55s ease;
+}
+
+@keyframes dl-bounce {
+  0%   { transform: translateY(0); }
+  35%  { transform: translateY(3px); }
+  65%  { transform: translateY(1px); }
+  100% { transform: translateY(0); }
 }
 
 /* ── Table of Contents (fixed left sidebar) ── */
