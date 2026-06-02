@@ -129,6 +129,7 @@ function SkillBar({ name, pct }: { name: string; pct: number }) {
 export default function TerminalPage() {
   const [locale, setLocale] = useState<Locale>("en");
   const [fading, setFading] = useState(false);
+  const [sidebarOpen, setSidebarOpen] = useState(false);
   const t = useCallback((key: string) => translations[locale][key] ?? key, [locale]);
 
   function switchLocale(next: Locale) {
@@ -223,6 +224,10 @@ export default function TerminalPage() {
       term: t("edu4_term"),
       desc: <a href="https://www.credly.com/badges/39ba9c1d-1279-4a77-a183-28c1bcb6ec7a" target="_blank" rel="noopener noreferrer">Splunk · Credly</a>,
     },
+    {
+      term: t("lang_term"),
+      desc: <>{t("lang_detail")}</>,
+    },
   ];
 
   const recommendations = [
@@ -293,6 +298,17 @@ export default function TerminalPage() {
 
   return (
     <div className="terminal">
+      {/* Sidebar toggle */}
+      <button
+        className={`hamburger${sidebarOpen ? " is-open" : ""}`}
+        onClick={() => setSidebarOpen(o => !o)}
+        aria-label={sidebarOpen ? "Close menu" : "Open menu"}
+      >
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+          <path d="M9 18l6-6-6-6"/>
+        </svg>
+      </button>
+
       {/* Language bar */}
       <div className="lang-bar">
         <span className="lang-prompt">$ set-locale</span>
@@ -319,8 +335,36 @@ export default function TerminalPage() {
         <span className="hdr-right">RANIOLO(1)</span>
       </div>
 
+      {/* Backdrop */}
+      {sidebarOpen && (
+        <div className="toc-backdrop" onClick={() => setSidebarOpen(false)} aria-hidden="true" />
+      )}
+
+      {/* Left sidebar TOC */}
+      <nav className={`toc${sidebarOpen ? " toc-open" : ""} t ${fadeClass}`} aria-label="Page sections">
+        <div className="toc-label">CONTENTS</div>
+        {[
+          { id: "name",        label: t("sec_name") },
+          { id: "tldr",        label: t("sec_tldr") },
+          { id: "synopsis",    label: t("sec_synopsis") },
+          { id: "description", label: t("sec_desc") },
+          { id: "options",     label: t("sec_options") },
+          { id: "history",     label: t("sec_history") },
+          { id: "skills",      label: t("sec_skills") },
+          { id: "keywords",    label: t("sec_kw") },
+          { id: "education",   label: t("sec_edu") },
+          { id: "projects",    label: t("sec_extra") },
+          { id: "references",  label: t("sec_refs") },
+        ].map((item, i) => (
+          <a key={item.id} href={`#${item.id}`} className="toc-item" onClick={() => setSidebarOpen(false)}>
+            <span className="toc-num">{String(i + 1).padStart(2, "0")}</span>
+            {item.label}
+          </a>
+        ))}
+      </nav>
+
       {/* NAME */}
-      <div className="section">
+      <div className="section" id="name">
         <div className={`section-title t ${fadeClass}`}>{t("sec_name")}</div>
         <div className="name-block">
           <div className="cmd-name">
@@ -362,11 +406,38 @@ export default function TerminalPage() {
           <div className={`citizenship t ${fadeClass}`}>
             {t("citizenship")}
           </div>
+          <a
+            href="https://raw.githubusercontent.com/wololo-aeyoyo/Resume-Latex/main/Resume.pdf"
+            download
+            className="pdf-download"
+            aria-label="Download PDF resume"
+          >
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M19 9h-4V3H9v6H5l7 7 7-7zm-14 9v2h14v-2H5z"/>
+            </svg>
+            Download PDF
+          </a>
         </div>
       </div>
 
+      {/* TL;DR */}
+      <div className="section" id="tldr">
+        <div className={`section-title t ${fadeClass}`}>{t("sec_tldr")}</div>
+        <ul className="exp-desc tldr-list">
+          {["tldr_b1", "tldr_b2", "tldr_b3", "tldr_b4"].map((key) => {
+            const [bold, rest] = t(key).split(" :: ");
+            return (
+              <li key={key} className={`t ${fadeClass}`}>
+                <strong style={{ color: "var(--amber)" }}>{bold}</strong>
+                {rest ? ` ${rest}` : ""}
+              </li>
+            );
+          })}
+        </ul>
+      </div>
+
       {/* SYNOPSIS */}
-      <div className="section">
+      <div className="section" id="synopsis">
         <div className={`section-title t ${fadeClass}`}>{t("sec_synopsis")}</div>
         <div className="body-text">
           <p className={`synopsis-line t ${fadeClass}`}>
@@ -381,7 +452,7 @@ export default function TerminalPage() {
       </div>
 
       {/* DESCRIPTION */}
-      <div className="section">
+      <div className="section" id="description">
         <div className={`section-title t ${fadeClass}`}>{t("sec_desc")}</div>
         <div className="body-text">
           <p className={`t ${fadeClass}`}>
@@ -399,7 +470,7 @@ export default function TerminalPage() {
       </div>
 
       {/* OPTIONS / TECHNICAL SKILLS */}
-      <div className="section">
+      <div className="section" id="options">
         <div className={`section-title t ${fadeClass}`}>{t("sec_options")}</div>
         <div className="def-list">
           {optionsItems.map((item) => (
@@ -415,7 +486,7 @@ export default function TerminalPage() {
       </div>
 
       {/* HISTORY / EXPERIENCE */}
-      <div className="section">
+      <div className="section" id="history">
         <div className={`section-title t ${fadeClass}`}>{t("sec_history")}</div>
         {experienceEntries.map((entry, idx) => (
           <div className="exp-entry" key={idx}>
@@ -436,7 +507,7 @@ export default function TerminalPage() {
       </div>
 
       {/* FILES / SKILLS */}
-      <div className="section">
+      <div className="section" id="skills">
         <div className={`section-title t ${fadeClass}`}>{t("sec_skills")}</div>
         <div className="skills-grid">
           {skills.map((s) => (
@@ -446,7 +517,7 @@ export default function TerminalPage() {
       </div>
 
       {/* KEYWORDS */}
-      <div className="section">
+      <div className="section" id="keywords">
         <div className={`section-title t ${fadeClass}`}>{t("sec_kw")}</div>
         <div className="tags">
           {keywords.map((kw) => (
@@ -456,7 +527,7 @@ export default function TerminalPage() {
       </div>
 
       {/* DEPENDENCIES / EDUCATION */}
-      <div className="section">
+      <div className="section" id="education">
         <div className={`section-title t ${fadeClass}`}>{t("sec_edu")}</div>
         <div className="def-list">
           {eduItems.map((item, idx) => (
@@ -469,7 +540,7 @@ export default function TerminalPage() {
       </div>
 
       {/* PROJECTS */}
-      <div className="section">
+      <div className="section" id="projects">
         <div className={`section-title t ${fadeClass}`}>{t("sec_extra")}</div>
         <div className="body-text">
           {[
@@ -493,7 +564,7 @@ export default function TerminalPage() {
       </div>
 
       {/* REFERENCES */}
-      <div className="section">
+      <div className="section" id="references">
         <div className={`section-title t ${fadeClass}`}>{t("sec_refs")}</div>
         <div className="refs-list">
           {recommendations.map((ref) => (

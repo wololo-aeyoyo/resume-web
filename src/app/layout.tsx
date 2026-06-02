@@ -48,12 +48,21 @@ export const metadata: Metadata = {
       "Reliability Engineer & Software Developer with 5+ years of experience in observability tooling, infrastructure automation, and backend web development.",
     siteName: "Humberto Raniolo",
     locale: "en_US",
+    images: [
+      {
+        url: "/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "Humberto Raniolo — Reliability Engineer & Software Developer",
+      },
+    ],
   },
   twitter: {
-    card: "summary",
+    card: "summary_large_image",
     title: "Humberto Raniolo — Reliability Engineer & Software Developer",
     description:
       "Reliability Engineer & Software Developer with 5+ years of experience in observability tooling, infrastructure automation, and backend web development.",
+    images: ["/og-image.png"],
   },
   robots: {
     index: true,

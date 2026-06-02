@@ -7,6 +7,11 @@ export const translations: Record<Locale, Record<string, string>> = {
     tagline: "Reliability Engineer & Software Developer · 5+ years",
     location: "Minneapolis, MN",
     citizenship: "🇺🇸 Authorized to work in the US · BS Systems Engineering · Open to relocation",
+    sec_tldr: "TL;DR",
+    tldr_b1: "5+ years :: in SRE, observability tooling, and backend web development across fintech, retail, and startup environments",
+    tldr_b2: "Led :: Splunk Enterprise → Cloud migration generating millions in annual cost savings",
+    tldr_b3: "Stack :: AWS · Terraform · NodeJS/NestJS · Python · Java · Splunk · Docker",
+    tldr_b4: "Bilingual :: Native Spanish · Fluent English · Open to relocation · Authorized to work in the US",
     sec_synopsis: "SYNOPSIS",
     sec_desc: "DESCRIPTION",
     desc_p1:
@@ -49,6 +54,8 @@ export const translations: Record<Locale, Record<string, string>> = {
     edu2_term: "Splunk Cloud Administration",
     edu3_term: "Splunk Cluster Administration",
     edu4_term: "Using the Splunk REST API",
+    lang_term: "Languages",
+    lang_detail: "Spanish (Native), English (Fluent)",
     sec_extra: "PROJECTS",
     extra_p1:
       "Digitization of Pressure Measurements for Lab Equipment (April 2018) — Built a circuit system using ASM, C++, PIC16F887, Arduino, and ESP8266 that collected tension transducer data and transmitted readings to Google Sheets and an Android application in real-time.",
@@ -65,6 +72,11 @@ export const translations: Record<Locale, Record<string, string>> = {
     tagline: "Ingeniero de site Reliability & Desarrollador de Software · +5 años",
     location: "Minneapolis, MN",
     citizenship: "🇺🇸 Autorizado para trabajar en EE.UU. · Ing. en Sistemas · Disponible para reubicación",
+    sec_tldr: "TL;DR",
+    tldr_b1: "+5 años :: en SRE, herramientas de observabilidad y desarrollo web backend en entornos fintech, retail y startups",
+    tldr_b2: "Lideró :: la migración de Splunk Enterprise a Cloud, generando millones en ahorros anuales",
+    tldr_b3: "Stack :: AWS · Terraform · NodeJS/NestJS · Python · Java · Splunk · Docker",
+    tldr_b4: "Bilingüe :: Español nativo · Inglés fluido · Disponible para reubicación · Autorizado para trabajar en EE.UU.",
     sec_synopsis: "SINOPSIS",
     sec_desc: "DESCRIPCIÓN",
     desc_p1:
@@ -107,6 +119,8 @@ export const translations: Record<Locale, Record<string, string>> = {
     edu2_term: "Splunk Cloud Administration",
     edu3_term: "Splunk Cluster Administration",
     edu4_term: "Using the Splunk REST API",
+    lang_term: "Idiomas",
+    lang_detail: "Español (Nativo), Inglés (Fluido)",
     sec_extra: "PROYECTOS",
     extra_p1:
       "Digitalización de Mediciones de Presión para Equipos de Laboratorio (Abril 2018) — Construí un sistema de circuitos usando ASM, C++, PIC16F887, Arduino y ESP8266 que recolectaba datos de transductores de tensión y transmitía lecturas a Google Sheets y una aplicación Android en tiempo real.",
