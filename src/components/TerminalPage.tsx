@@ -311,21 +311,40 @@ export default function TerminalPage() {
 
       {/* Language bar */}
       <div className="lang-bar">
-        <span className="lang-prompt">$ set-locale</span>
-        <button
-          className={`lang-btn${locale === "en" ? " active" : ""}`}
-          onClick={() => switchLocale("en")}
-          aria-label="Switch to English"
-        >
-          <FlagEN /> EN
-        </button>
-        <button
-          className={`lang-btn${locale === "es" ? " active" : ""}`}
-          onClick={() => switchLocale("es")}
-          aria-label="Cambiar a Español"
-        >
-          <FlagES /> ES
-        </button>
+        <details className="formats-dropdown">
+          <summary className="lang-btn" aria-label="Export formats">
+            <svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6zm-1 1.5L18.5 9H13V3.5zM6 20V4h5v7h7v9H6z"/>
+            </svg>
+            {t("btn_formats")}
+            <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+              <path d="m6 9 6 6 6-6"/>
+            </svg>
+          </summary>
+          <div className="formats-menu">
+            <a href={`/feed.xml?locale=${locale}`} className="formats-item" target="_blank" rel="noopener noreferrer">RSS</a>
+            <a href={`/feed.json?locale=${locale}`} className="formats-item" target="_blank" rel="noopener noreferrer">JSON Feed</a>
+            <a href={`/resume.xml?locale=${locale}`} className="formats-item" target="_blank" rel="noopener noreferrer">XML</a>
+            <a href={`/resume.json?locale=${locale}`} className="formats-item" target="_blank" rel="noopener noreferrer">JSON</a>
+          </div>
+        </details>
+        <div className="lang-locale">
+          <span className="lang-prompt">$ set-locale</span>
+          <button
+            className={`lang-btn${locale === "en" ? " active" : ""}`}
+            onClick={() => switchLocale("en")}
+            aria-label="Switch to English"
+          >
+            <FlagEN /> EN
+          </button>
+          <button
+            className={`lang-btn${locale === "es" ? " active" : ""}`}
+            onClick={() => switchLocale("es")}
+            aria-label="Cambiar a Español"
+          >
+            <FlagES /> ES
+          </button>
+        </div>
       </div>
 
       {/* Manpage header */}
@@ -342,7 +361,7 @@ export default function TerminalPage() {
 
       {/* Left sidebar TOC */}
       <nav className={`toc${sidebarOpen ? " toc-open" : ""} t ${fadeClass}`} aria-label="Page sections">
-        <div className="toc-label">CONTENTS</div>
+        <div className={`toc-label t ${fadeClass}`}>{t("toc_contents")}</div>
         {[
           { id: "name",        label: t("sec_name") },
           { id: "tldr",        label: t("sec_tldr") },
@@ -409,13 +428,13 @@ export default function TerminalPage() {
           <a
             href="https://raw.githubusercontent.com/wololo-aeyoyo/Resume-Latex/main/Resume.pdf"
             download
-            className="pdf-download"
-            aria-label="Download PDF resume"
+            className={`pdf-download t ${fadeClass}`}
+            aria-label={t("btn_pdf")}
           >
             <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
               <path d="M19 9h-4V3H9v6H5l7 7 7-7zm-14 9v2h14v-2H5z"/>
             </svg>
-            Download PDF
+            {t("btn_pdf")}
           </a>
         </div>
       </div>

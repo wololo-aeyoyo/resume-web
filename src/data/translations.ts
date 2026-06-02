@@ -65,6 +65,9 @@ export const translations: Record<Locale, Record<string, string>> = {
     refs_via: "via LinkedIn",
     footer_l: "v5yr.0 · Minneapolis, MN · Systems Engineer",
     footer_upd: "Last updated:",
+    toc_contents: "CONTENTS",
+    btn_formats: "Formats",
+    btn_pdf: "Download PDF",
   },
   es: {
     hdr: "Manual de Comandos Generales",
@@ -130,5 +133,8 @@ export const translations: Record<Locale, Record<string, string>> = {
     refs_via: "vía LinkedIn",
     footer_l: "v5yr.0 · Minneapolis, MN · Ingeniero de Sistemas",
     footer_upd: "Última actualización:",
+    toc_contents: "CONTENIDO",
+    btn_formats: "Formatos",
+    btn_pdf: "Descargar PDF",
   },
 };
