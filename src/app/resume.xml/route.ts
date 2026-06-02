@@ -5,12 +5,19 @@ import { personalInfo, experienceMeta, skillsData, certData, referencesData, key
 const x = (s: string) =>
   s.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
 
+const tldrKeys = ["tldr_b1", "tldr_b2", "tldr_b3", "tldr_b4"];
+
+const skillCategories = [
+  { category: "Languages",      items: ["Node.JS", "Python", "Java", "C#", "JavaScript", "SQL", "Ruby"] },
+  { category: "Frameworks",     items: ["NestJS", "SpringBoot", "Angular", "Postman"] },
+  { category: "Infrastructure", items: ["AWS", "Terraform", "Ansible", "Chef", "Docker"] },
+  { category: "Observability",  items: ["Splunk", "Elastic", "Grafana", "VictoriaMetrics", "Graphite"] },
+];
+
 export async function GET(request: NextRequest) {
   const raw = request.nextUrl.searchParams.get("locale");
   const locale: Locale = raw === "es" ? "es" : "en";
   const t = translations[locale];
-
-  const tldrKeys = ["tldr_b1", "tldr_b2", "tldr_b3", "tldr_b4"];
 
   const tldr = tldrKeys
     .map((k) => {
@@ -39,13 +46,6 @@ export async function GET(request: NextRequest) {
     </job>`
     )
     .join("");
-
-  const skillCategories = [
-    { category: "Languages",      items: ["Node.JS", "Python", "Java", "C#", "JavaScript", "SQL", "Ruby"] },
-    { category: "Frameworks",     items: ["NestJS", "SpringBoot", "Angular", "Postman"] },
-    { category: "Infrastructure", items: ["AWS", "Terraform", "Ansible", "Chef", "Docker"] },
-    { category: "Observability",  items: ["Splunk", "Elastic", "Grafana", "VictoriaMetrics", "Graphite"] },
-  ];
 
   const skills = skillCategories
     .map(
