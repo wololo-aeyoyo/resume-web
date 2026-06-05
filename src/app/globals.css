@@ -29,42 +29,81 @@ html {
 }
 
 body {
-  background-color: var(--bg);
+  background-color: #0e0f12;
   color: var(--white);
-  font-family: var(--font-ibm-plex-mono), "IBM Plex Mono", "Courier New", monospace;
+  font-family: "SF Mono", var(--font-ibm-plex-mono), "IBM Plex Mono", "Courier New", monospace;
   font-size: 16px;
   line-height: 1.7;
   min-height: 100vh;
-  background-image: repeating-linear-gradient(
-    0deg,
-    transparent,
-    transparent 2px,
-    rgba(0, 0, 0, 0.08) 2px,
-    rgba(0, 0, 0, 0.08) 4px
-  );
+  padding: 2rem 1rem 3rem;
 }
 
-/* CRT vignette overlay */
 body::before {
-  content: "";
-  position: fixed;
-  inset: 0;
-  background: radial-gradient(transparent 60%, rgba(0, 0, 0, 0.55) 100%);
-  pointer-events: none;
-  z-index: 100;
+  display: none;
 }
 
-/* ── Terminal container ── */
+/* ── Terminal window ── */
 .terminal {
   max-width: 960px;
   margin: 0 auto;
-  padding: 3.5rem 3rem 4rem;
+  background: var(--bg);
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow:
+    0 0 0 1px rgba(255, 255, 255, 0.07),
+    0 24px 70px rgba(0, 0, 0, 0.85);
+}
+
+/* ── macOS title bar ── */
+.mac-titlebar {
+  display: flex;
+  align-items: center;
+  height: 38px;
+  padding: 0 1rem;
+  background: #252527;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.45);
+  user-select: none;
+  flex-shrink: 0;
+  position: sticky;
+  top: 0;
+  z-index: 50;
+}
+
+.mac-dots {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.mac-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+}
+
+.mac-dot-red    { background: #ff5f57; }
+.mac-dot-yellow { background: #ffbd2e; }
+.mac-dot-green  { background: #28c840; }
+
+.mac-title {
+  flex: 1;
+  text-align: center;
+  font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  color: #777;
+  letter-spacing: 0.01em;
+}
+
+/* ── Terminal content area ── */
+.terminal-body {
+  padding: 1.5rem 3rem 4rem;
 }
 
 /* ── Sidebar toggle button ── */
 .hamburger {
   position: fixed;
-  top: 1rem;
+  bottom: 1.5rem;
   left: 1rem;
   z-index: 400;
   display: flex;
@@ -814,12 +853,17 @@ body::before {
 
 /* ── Responsive ── */
 @media (max-width: 660px) {
-  .terminal {
-    padding: 3rem 1.2rem 3rem;
+  body {
+    padding: 0;
   }
 
-  .lang-bar {
-    padding-left: 2.5rem;
+  .terminal {
+    border-radius: 0;
+    box-shadow: none;
+  }
+
+  .terminal-body {
+    padding: 1.5rem 1.2rem 3rem;
   }
 
   .def-item {

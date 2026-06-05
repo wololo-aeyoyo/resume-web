@@ -310,6 +310,19 @@ export default function TerminalPage() {
         </svg>
       </button>
 
+      {/* macOS window chrome */}
+      <div className="mac-titlebar">
+        <div className="mac-dots">
+          <div className="mac-dot mac-dot-red" />
+          <div className="mac-dot mac-dot-yellow" />
+          <div className="mac-dot mac-dot-green" />
+        </div>
+        <span className="mac-title">bash — humberto-resume</span>
+      </div>
+
+      {/* Terminal content */}
+      <div className="terminal-body">
+
       {/* Language bar */}
       <div className="lang-bar">
         <details className="formats-dropdown">
@@ -610,6 +623,8 @@ export default function TerminalPage() {
         <span className={`t ${fadeClass}`}>{t("footer_upd")} {dateStr}</span>
         <span>RANIOLO(1)</span>
       </div>
+
+      </div>{/* terminal-body */}
     </div>
   );
 }
