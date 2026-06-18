@@ -289,6 +289,10 @@ export default function TerminalPage() {
       desc: <a href="https://www.credly.com/badges/39ba9c1d-1279-4a77-a183-28c1bcb6ec7a" target="_blank" rel="noopener noreferrer">Splunk · Credly</a>,
     },
     {
+      term: t("edu5_term"),
+      desc: <>Cisco · Pursuing</>,
+    },
+    {
       term: t("lang_term"),
       desc: <>{t("lang_detail")}</>,
     },
